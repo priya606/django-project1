@@ -1,0 +1,25 @@
+
+{% block content %}
+  <h1>Uploaded Files</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>File</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for file in files %}
+        <tr>
+          <td>{{ file.id }}</td>
+          <td>{{ file.name }}</td>
+          <td>
+            <a href="{% url 'open_file' file.id %}">Open</a>
+            <a href="{% url 'download_file' file.id %}">Download</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
